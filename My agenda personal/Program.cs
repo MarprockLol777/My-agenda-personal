@@ -40,7 +40,16 @@ class Program
         {
             ShowMenu();
 
-            int choice = Convert.ToInt32(Console.ReadLine());
+            int choice;
+
+                choice = Convert.ToInt32(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Please enter a number!");
+                continue; // go back to menu
+            }
+
 
             switch (choice)
             {
@@ -75,12 +84,12 @@ class Program
         }
     }
 
-    // =========================
+
     // MENU
-    // =========================
+ 
     static void ShowMenu()
     {
-        Console.WriteLine("\n1. Add Contact");
+        Console.WriteLine("1. Add Contact");
         Console.WriteLine("2. View Contacts");
         Console.WriteLine("3. Search Contact");
         Console.WriteLine("4. Edit Contact");
@@ -89,9 +98,9 @@ class Program
         Console.Write("Choose option: ");
     }
 
-    // =========================
+
     // ADD CONTACT
-    // =========================
+
     static void AddContact()
     {
         int id = contacts.Count + 1;
@@ -116,12 +125,12 @@ class Program
         Console.WriteLine("Contact added!");
     }
 
-    // =========================
+
     // VIEW CONTACTS
-    // =========================
+  
     static void ViewContacts()
     {
-        Console.WriteLine("\nID  Name  Phone  Email  Address");
+        Console.WriteLine("ID  Name  Phone  Email  Address");
 
         foreach (Contact c in contacts)
         {
@@ -129,13 +138,23 @@ class Program
         }
     }
 
-    // =========================
+ 
     // SEARCH CONTACT
-    // =========================
+
     static void SearchContact()
     {
         Console.Write("Enter ID to search: ");
-        int id = Convert.ToInt32(Console.ReadLine());
+        int id;
+
+        try     // there was a mistake that i fount so i solve this with try and catch
+        {
+            id = Convert.ToInt32(Console.ReadLine());
+        }
+        catch
+        {
+            Console.WriteLine("Invalid ID!");
+            return;
+        }
 
         Contact c = contacts.FirstOrDefault(x => x.Id == id);
 
@@ -149,9 +168,9 @@ class Program
         }
     }
 
-    // =========================
+
     // EDIT CONTACT
-    // =========================
+ 
     static void EditContact()
     {
         Console.Write("Enter ID to edit: ");
@@ -181,9 +200,9 @@ class Program
         }
     }
 
-    // =========================
+
     // DELETE CONTACT
-    // =========================
+
     static void DeleteContact()
     {
         Console.Write("Enter ID to delete: ");
