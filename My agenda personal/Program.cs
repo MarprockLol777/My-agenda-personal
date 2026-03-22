@@ -94,7 +94,7 @@ class Program
 
         Console.WriteLine(new string('=', 50));
         Console.WriteLine("        Marcos Eliu Cuevas Jimenez 2025 - 1883");
-        Console.WriteLine("        PATIENT SIGN-UP SYSTEM");
+        Console.WriteLine("        CONTACTES SIGN-UP SYSTEM");
         Console.WriteLine(new string('=', 50));
 
 
