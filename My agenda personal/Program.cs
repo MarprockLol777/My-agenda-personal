@@ -34,7 +34,7 @@ class Program
 
     static void Main()
     {
-        Console.WriteLine("My Cool Agenda");
+        Console.WriteLine("My Agenda");
 
         while (running)
         {
@@ -42,6 +42,8 @@ class Program
 
             int choice;
 
+            try   // there was a mistake that i fount so i solve this with try and catch
+            {
                 choice = Convert.ToInt32(Console.ReadLine());
             }
             catch
@@ -89,15 +91,23 @@ class Program
  
     static void ShowMenu()
     {
+
+        Console.WriteLine(new string('=', 50));
+        Console.WriteLine("        Marcos Eliu Cuevas Jimenez 2025 - 1883");
+        Console.WriteLine("        PATIENT SIGN-UP SYSTEM");
+        Console.WriteLine(new string('=', 50));
+
+
         Console.WriteLine("1. Add Contact");
         Console.WriteLine("2. View Contacts");
         Console.WriteLine("3. Search Contact");
         Console.WriteLine("4. Edit Contact");
         Console.WriteLine("5. Delete Contact");
         Console.WriteLine("6. Exit");
+        Console.WriteLine(new string('-', 50));
         Console.Write("Choose option: ");
-    }
 
+    }
 
     // ADD CONTACT
 
@@ -174,7 +184,18 @@ class Program
     static void EditContact()
     {
         Console.Write("Enter ID to edit: ");
-        int id = Convert.ToInt32(Console.ReadLine());
+
+        int id;
+
+        try   // there was a mistake that i fount so i solve this with try and catch
+        {
+            id = Convert.ToInt32(Console.ReadLine());
+        }
+        catch
+        {
+            Console.WriteLine("Invalid ID!");
+            return;
+        }
 
         Contact c = contacts.FirstOrDefault(x => x.Id == id);
 
@@ -206,7 +227,18 @@ class Program
     static void DeleteContact()
     {
         Console.Write("Enter ID to delete: ");
-        int id = Convert.ToInt32(Console.ReadLine());
+
+        int id;
+
+        try     // there was a mistake that i fount so i solve this with try and catch
+        {
+            id = Convert.ToInt32(Console.ReadLine());
+        }
+        catch
+        {
+            Console.WriteLine("Invalid ID!");
+            return;
+        }
 
         Contact c = contacts.FirstOrDefault(x => x.Id == id);
 
